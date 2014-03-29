@@ -1,14 +1,6 @@
 <?php
     $cod=$_GET['codEmp'];
 ?>
-<style type="text/css">
-    table,thead,tr,td{
-        
-    }
-    thead{
-        background-color: #9e8e8e;
-    }
-</style>
 <form method="post" action="mostrarIntegrantes.php" name="evaluar">
     <table>
         <thead>
@@ -19,7 +11,7 @@
                  $emp=new GrupoEmpresa();
                  $emp->dameIntegrantes($cod);
             ?>
-            <tr><td><input type="submit" value="evaluar"></td></tr>
+            <tr><td colspan="7"><input type="submit" value="evaluar"></td></tr>
         </tbody>
         <tfoot>
 
