@@ -63,6 +63,10 @@ for($o=0;$o<$cantidad;$o++){
         $observacion[$o]=$_POST['obs'.($o+1)];
     }
 }
+
+
+
+
 echo $cantidad."<br>";
 /**/?>
 <table>
