@@ -36,23 +36,45 @@ for ($p = 0; $p < $cantidad; $p++) {
         $participacion[$p]=1;
     }
 }
-for ($i = 0; $i < $cantidad; $i++) {
-    $justificacion[$i]=$_POST['justificacion'.($i+1)];
-    $nota[$i]=$_POST['nota'.($i+1)];
-    $observacion[$i]=$_POST['obs'.($i+1)];
+//llenado de justificacion
+for($ll=0;$ll<$cantidad;$ll++){
+    if($_POST['justificacion'.($ll+1)]==NULL){
+        $justificacion[$ll]='nada';
+    }
+    else{
+        $justificacion[$ll]=$_POST['justificacion'.($ll+1)];
+    }
+}
+//llenado de nota
+for($n=0;$n<$cantidad;$n++){
+    if($_POST['nota'.($n+1)]==NULL){
+        $nota[$n]=0;
+    }
+    else{
+        $nota[$n]=$_POST['nota'.($n+1)];
+    }
+}
+//llenado de observacion
+for($o=0;$o<$cantidad;$o++){
+    if($_POST['obs'.($o+1)]==NULL){
+        $observacion[$o]='nada';
+    }
+    else{
+        $observacion[$o]=$_POST['obs'.($o+1)];
+    }
 }
 echo $cantidad."<br>";
-?>
+/**/?>
 <table>
     <tr><td>asistencia</td><td>licencia</td><td>participacion</td><td>justificacion</td><td>nota</td><td>obs</td></tr>
     <?php
-    for ($a = 0; $a < $cantidad; $a++) {
+       for ($a = 0; $a < $cantidad; $a++) {
         echo '<tr><td>'.$asistentes[$a].'</td><td>'.$licencia[$a].'</td><td>'.$participacion[$a].'</td><td>'.$justificacion[$a].'</td><td>'.$nota[$a].'</td><td>'.$observacion[$a].'</td></tr>';
     }
-    ?>
+        ?>
 </table>
 
-
+<!--
 
 <form action="" method="">
     <table >
@@ -148,4 +170,4 @@ echo $cantidad."<br>";
             licencia.checked=false;
         }
     }
-</script>
+</script>-->
