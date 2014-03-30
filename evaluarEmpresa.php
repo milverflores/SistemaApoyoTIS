@@ -1,22 +1,24 @@
 <?php
     $cod=$_GET['codEmp'];
 ?>
-<form method="post" action="mostrarIntegrantes.php" name="evaluar">
-    <table>
-        <thead>
-            <tr><td>integante</td><td>asistencia</td><td>licencia</td><td>participacion</td><td>justificacion</td><td>calificacion</td><td>observaciones</td></tr>
-        </thead>
-        <tbody>
-            <?php
-                 $emp=new GrupoEmpresa();
-                 $emp->dameIntegrantes($cod);
-            ?>
-            <tr><td colspan="7"><input type="submit" value="evaluar"></td></tr>
-        </tbody>
-        <tfoot>
+<form method="post" action="mostrarIntegrantes.php" name="evaluar" role="form">
+    <div class="table-responsive">
+        <table class="table table-striped table-hover">
+            <thead>
+                <tr><td>integante</td><td>asistencia</td><td>licencia</td><td>participacion</td><td>justificacion</td><td>calificacion</td><td>observaciones</td></tr>
+            </thead>
+            <tbody>
+                <?php
+                     $emp=new GrupoEmpresa();
+                     $emp->dameIntegrantes($cod);
+                ?>
+                <tr><td colspan="7"><input type="submit" value="evaluar" class="btn btn-primary bt-lg btn-block"></td></tr>
+            </tbody>
+            <tfoot>
 
-        </tfoot>
-    </table>
+            </tfoot>
+        </table>
+    </div>
 </form>
 <script type="text/javascript">
     function clickAsistencia(num){

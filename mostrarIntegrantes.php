@@ -1,4 +1,5 @@
 <?php
+require 'clases/ConexionTIS.php';
 //cantidad de registros a llenar
 $cantidad=$_POST['cantidad'];
 
@@ -39,7 +40,7 @@ for ($p = 0; $p < $cantidad; $p++) {
 //llenado de justificacion
 for($ll=0;$ll<$cantidad;$ll++){
     if($_POST['justificacion'.($ll+1)]==NULL){
-        $justificacion[$ll]='nada';
+        $justificacion[$ll]='';
     }
     else{
         $justificacion[$ll]=$_POST['justificacion'.($ll+1)];
@@ -57,28 +58,32 @@ for($n=0;$n<$cantidad;$n++){
 //llenado de observacion
 for($o=0;$o<$cantidad;$o++){
     if($_POST['obs'.($o+1)]==NULL){
-        $observacion[$o]='nada';
+        $observacion[$o]='';
     }
     else{
         $observacion[$o]=$_POST['obs'.($o+1)];
     }
 }
+$conx=new ConexionTIS();
+$conx->evaluarIntegrantes($codsInt,$asistentes,$licencia,$participacion,$justificacion,$nota,$observacion,$cantidad,$_POST['codEmp']);
 
+header("Location:seguimiento.php");
 
 
 
 echo $cantidad."<br>";
 /**/?>
-<table>
-    <tr><td>asistencia</td><td>licencia</td><td>participacion</td><td>justificacion</td><td>nota</td><td>obs</td></tr>
-    <?php
-       for ($a = 0; $a < $cantidad; $a++) {
-        echo '<tr><td>'.$asistentes[$a].'</td><td>'.$licencia[$a].'</td><td>'.$participacion[$a].'</td><td>'.$justificacion[$a].'</td><td>'.$nota[$a].'</td><td>'.$observacion[$a].'</td></tr>';
-    }
-        ?>
-</table>
+
 
 <!--
+$cantidad=$_POST['cantidad'];
+
+$asistentes;
+$licencia;
+$participacion;
+$justificacion;
+$nota;
+$observacion;
 
 <form action="" method="">
     <table >

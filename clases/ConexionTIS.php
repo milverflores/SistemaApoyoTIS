@@ -42,7 +42,7 @@ class  ConexionTIS
                     echo $row['grupodoc']."<br>";
                     echo "<section class='centro'>".$row['nombreemp']."</section>";
                     echo '<article class="representante">'.$this->getRepresentante($row["codemp"]).'</article>';
-                    echo '<a href="seguimiento.php?codEmp='.$row["codemp"].'" class="detalle" >enlace</a>';
+                    echo '<a href="seguimiento.php?codEmp='.$row["codemp"].'" class="btn btn-primary btn-sm btn-right" >evaluar empresa</a>';
             ?></article><?php
         }
     }
@@ -72,6 +72,9 @@ class  ConexionTIS
         $sqlIntRep="SELECT * FROM getintegrtrep(".$codEmp.");";
         $respIntRep=  $this->Consultas($sqlIntRep);
         return $respIntRep;
+    }
+    function evaluarIntegrantes($codsInt,$asist,$lic,$part,$just,$nota,$obs,$cant,$codEmp) {
+        
     }
 }
 //fin clase conexion
